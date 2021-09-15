@@ -35,8 +35,6 @@ class Club {
         char retJobType(){
             return type_of_job;
         }
-        
-        //friend int return_floor(Club test);
 };
 
 //Array of objects created for all the below types of clubs so the records can be stored.
@@ -56,7 +54,6 @@ public:
 }c[N];
 
 
-
 class Academic_block {
     protected:
         int flr=-1;
@@ -65,16 +62,16 @@ class Academic_block {
         int return_floor(StudentProject test);
         int return_floor(TechClub test);
         int return_floor(NonTechClub test);
-        //int return_floor(Club test);
         int seat_count();
         int assign_room();
     
-}d[N*3];
+}d[N*ROOM];
 
 void Academic_block::display_rooms() {
     cout<<"Current Status of the rooms in the Academic Block are : "<<endl;
-    cout<<"+---------------------------+"<<endl<<"| ";
+    cout<<"+---------------------------+"<<endl;
     for(int i=0;i<FLOOR;i++) {
+        cout<<"| ";
         for(int j=0;j<ROOM;j++) {
             cout<<" "<<rooms[i][j]<<"| ";
         }
