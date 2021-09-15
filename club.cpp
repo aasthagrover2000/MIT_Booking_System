@@ -6,7 +6,7 @@ using namespace std;
 #define FLOOR 4
 #define ROOM 4
 static int rooms[FLOOR][ROOM]={0,0,0,0};
- 
+#define xyz 50 
 class Club {
     //protected:
     public:
