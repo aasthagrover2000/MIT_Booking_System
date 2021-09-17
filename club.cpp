@@ -91,7 +91,7 @@ class NonTechClub : public Club {
             cin>>funds;
         }
         bool enough_funds(int head_cnt) {
-            if(funds/head_cnt>9) return 1;
+            if(funds/head_cnt>420.69) return 1;
             else return 0;
         }
         
