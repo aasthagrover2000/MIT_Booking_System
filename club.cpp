@@ -62,7 +62,6 @@ class StudentProject : public Club {
         }
         void x_space() {
             extra=ceil(buffer*1.5);
-
             no_of_members+=extra;
         }
 }a[N];
@@ -100,7 +99,7 @@ class NonTechClub : public Club {
 
 class Academic_block {
     protected:
-        int flr;
+        int flr=-1;
         friend class Admin;
     public:
         int return_floor(StudentProject test);
@@ -150,6 +149,7 @@ int Academic_block:: return_floor(NonTechClub test) {
     else if(test.retJobType() == 'd') { flr=3; return 3; }
     else return -1; //default case
 }
+
 class Admin {
     public:
         void Denial(Academic_block *deny) {
@@ -166,13 +166,13 @@ class Admin {
         }
 };
 
-
 int Academic_block:: assign_room(int cnt) {
-    if(flr==-1) {Admin prof;
-                 prof.Denial(this);
-                 return -1;
-                } //call Admin somehow
-    cout<<extra;
+    if(flr==-1) {
+        Admin prof;
+        prof.Denial(this);
+        return -1;
+    } //call Admin somehow
+    cout<<"EXTRA: "<<extra<<endl;
     if(cnt<=15 && rooms[flr][0]==0) { rooms[flr][0]=cnt-extra; return (flr+1)*100+1; }
     else if (cnt<=25 && rooms[flr][1]==0) { rooms[flr][1]=cnt-extra; return (flr+1)*100+2; }
     else if (cnt<=35 && rooms[flr][2]==0) { rooms[flr][2]=cnt-extra; return (flr+1)*100+3; }
@@ -192,7 +192,7 @@ int main()
     cin>>choice;
     bool flag=0,check;
     while(1) {
-    extra=0
+        ::extra=0;
     switch (choice) {
         case 1:
             cout<<"\nStudent Project";
@@ -204,15 +204,15 @@ int main()
             a[SP].x_space();
             
             sol=d[AB].return_floor(a[SP]);
-            if(sol!=-1){
-                cout<<"\nFloor: "<< sol;
-                r=d[AB].assign_room(a[SP].retMemCount());
-                if(r!=-1) cout<<"\nRoom Allotted: "<< r <<endl;
-            }
-            else cout<<"Please choose one of the given choice of work.\n";
-            //d[AB].display_rooms();
+            if(sol!=-1) cout<<"\nFloor: "<< sol;
+            
+            r=d[AB].assign_room(a[SP].retMemCount());
+            if(r!=-1) cout<<"\nRoom Allotted: "<< r <<endl;
+            
+            d[AB].display_rooms();
             SP++; AB++;
             break;
+        
         case 2:
             cout<<"\nTech Club";
             b[TC].getType();
@@ -221,22 +221,23 @@ int main()
             b[TC].dispMemCount();
             b[TC].getCGPA();
             check=b[TC].CGPA();
+            
             if(check) {
                 sol=d[AB].return_floor(b[TC]);
-                if(sol!=-1) {
-                    cout<<"\nFloor: "<< sol;
-                    r=d[AB].assign_room(b[TC].retMemCount());
-                    if(r!=-1) cout<<"\nRoom Allotted: "<< r <<endl;
-                }
-                else cout<<"Please choose one of the given choice of work.\n";
+                if(sol!=-1) cout<<"\nFloor: "<< sol;
+                r=d[AB].assign_room(b[TC].retMemCount());
+                if(r!=-1) cout<<"\nRoom Allotted: "<< r <<endl;
             }
+            
             else {
                 Admin logi;
                 logi.cgpa_req();
             }
-            //d[AB].display_rooms();
+            
+            d[AB].display_rooms();
             TC++; AB++;
             break;
+        
         case 3:
             cout<<"\nNon Tech Club";
             c[NTC].getType();
@@ -248,20 +249,20 @@ int main()
             
             if(check) {
                 sol=d[AB].return_floor(c[NTC]);
-                if(sol!=-1) {
-                    cout<<"\nFloor: "<< sol;
-                    r=d[AB].assign_room(c[NTC].retMemCount());
-                    if(r!=-1) cout<<"\nRoom Allotted: "<< r <<endl;
-                }
-                else cout<<"Please choose one of the given choice of work.\n";
+                if(sol!=-1)cout<<"\nFloor: "<< sol;
+                r=d[AB].assign_room(c[NTC].retMemCount());
+                if(r!=-1) cout<<"\nRoom Allotted: "<< r <<endl;
             }
+            
             else {
                 Admin logi;
                 logi.funds_req();
             }
-            //d[AB].display_rooms();
+            
+            d[AB].display_rooms();
             NTC++; AB++;
             break;
+        
         case 4:
             d[AB].display_rooms();
             break;
