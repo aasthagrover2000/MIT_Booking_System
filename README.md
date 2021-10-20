@@ -3,7 +3,4 @@ Making a MIT Room booking system, employing the concepts of OOPS
 
 Here is an overview of the classes we have used to implement an efficient room booking system for Student Projects, Technical Clubs and Non-Technical clubs. 
 
-![image](https://user-images.githubusercontent.com/66693577/133818746-ba3e0b29-07b6-441c-9787-d5b39a92e125.png)
-
-
-
+<img width="1038" alt="Screenshot 2021-10-20 at 9 10 45 AM" src="https://user-images.githubusercontent.com/66693577/138024619-a9f4a75b-23b5-41ec-83e2-3dacaa9ff270.png">
