@@ -91,7 +91,7 @@ class NonTechClub : public Club {
             cin>>funds;
         }
         bool enough_funds(int head_cnt) {
-            if(funds/head_cnt>420.69) return 1;
+            if(funds/head_cnt>410.66) return 1;
             else return 0;
         }
         
@@ -172,7 +172,7 @@ int Academic_block:: assign_room(int cnt) {
         prof.Denial(this);
         return -1;
     } //call Admin somehow
-    cout<<"EXTRA: "<<extra<<endl;
+    cout<<"   EXTRA: "<<extra<<endl;
     if(cnt<=15 && rooms[flr][0]==0) { rooms[flr][0]=cnt-extra; return (flr+1)*100+1; }
     else if (cnt<=25 && rooms[flr][1]==0) { rooms[flr][1]=cnt-extra; return (flr+1)*100+2; }
     else if (cnt<=35 && rooms[flr][2]==0) { rooms[flr][2]=cnt-extra; return (flr+1)*100+3; }
