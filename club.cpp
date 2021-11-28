@@ -27,7 +27,6 @@ class Club {
             cout<<"\na)Meeting \nb)Presentation \nc)Laboratory Work \nd)Auditorium \n";
             cin>>type_of_job;
         }
-
         void memberCount() {
             cout<<"\nEnter the number of members: ";
             cin>>no_of_members;
@@ -70,6 +69,9 @@ class TechClub : public Club {
     private:
         float cgpa;
     public:
+        TechClub() {
+            cgpa=0;
+        }
         friend int return_floor(TechClub test);
         void getCGPA() {
             cout<<"Please enter the cumulative CGPA of the attendees of the room: ";
@@ -85,6 +87,9 @@ class NonTechClub : public Club {
     private:
         int funds;
     public:
+        NonTechClub() {
+            funds=0;
+        }
         friend int return_floor(NonTechClub test);
         void getFunds() {
             cout<<"Please enter the funds of the Non-Technical Club: ";
@@ -184,7 +189,8 @@ int Academic_block:: assign_room(int cnt) {
     } //call Admin somehow
 }
 int main()
-{   int SP,TC,NTC,AB;//Kepps track of the respective number of organizations.
+{
+    int SP,TC,NTC,AB;//Kepps track of the respective number of organizations.
     int choice,sol,r;
     SP=TC=NTC=AB=0;
     cout<<"Please select a type of organization:\n";
