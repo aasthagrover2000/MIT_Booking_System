@@ -183,7 +183,7 @@ int Academic_block:: assign_room(int cnt) {
         prof_a prof;
         prof.Denial(this);
         return -1;
-    } //call Admin somehow
+    }
     cout<<"   EXTRA: "<<extra<<endl;
     if(cnt<=15 && rooms[flr][0]==0) { rooms[flr][0]=cnt-extra; return (flr+1)*100+1; }
     else if (cnt<=25 && rooms[flr][1]==0) { rooms[flr][1]=cnt-extra; return (flr+1)*100+2; }
@@ -193,7 +193,7 @@ int Academic_block:: assign_room(int cnt) {
         prof_a prof;
         prof.Denial(this);
         return -1;
-    } //call Admin somehow
+    } 
 }
 int main()
 {
