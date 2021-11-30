@@ -69,8 +69,7 @@ class TechClub : public Club {
     private:
         float cgpa;
     public:
-        TechClub() {
-            cgpa=0;
+    TechClub(): cgpa{0} {
         }
         friend int return_floor(TechClub test);
         void getCGPA() {
@@ -161,19 +160,27 @@ class Admin {
             if((*deny).flr==-1) cout<<"\nADMIN ERROR: Room type selected does not exist. Please try again later or change your requirements.\n";
             else cout<<"\nADMIN ERROR: All compatible rooms occupied. Please try again later or change your requirements.\n";
         }
-        
-        void cgpa_req() {
-            cout<<"\nADMIN ERROR: Sorry, CGPA requirement not fulfilled.";
-        }
-        
-        void funds_req() {
-            cout<<"\nADMIN ERROR: Sorry, Funds requirement not fulfilled.";
-        }
+    
 };
 
+class prof_a: virtual public Admin {
+    public:
+    void cgpa_req() {
+        cout<<"\nADMIN ERROR: Sorry, CGPA requirement not fulfilled.";
+    }
+    
+};
+
+class prof_b: virtual public Admin {
+    public:
+    void funds_req() {
+        cout<<"\nADMIN RROR: Sorry, Funds requirement not fulfilled.";
+    }
+    
+};
 int Academic_block:: assign_room(int cnt) {
     if(flr==-1) {
-        Admin prof;
+        prof_a prof;
         prof.Denial(this);
         return -1;
     } //call Admin somehow
@@ -183,7 +190,7 @@ int Academic_block:: assign_room(int cnt) {
     else if (cnt<=35 && rooms[flr][2]==0) { rooms[flr][2]=cnt-extra; return (flr+1)*100+3; }
     else if (cnt<=45 && rooms[flr][3]==0) { rooms[flr][3]=cnt-extra; return (flr+1)*100+4; }
     else  {
-        Admin prof;
+        prof_a prof;
         prof.Denial(this);
         return -1;
     } //call Admin somehow
@@ -236,7 +243,7 @@ int main()
             }
             
             else {
-                Admin logi;
+                prof_a logi;
                 logi.cgpa_req();
             }
             
@@ -261,7 +268,7 @@ int main()
             }
             
             else {
-                Admin logi;
+                prof_b logi;
                 logi.funds_req();
             }
             
